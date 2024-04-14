@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "4c706957-0601-4d51-bcb6-7b15217401d6",
+		"name": "TYPICODE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21247146",
+		"_collection_link": "https://planetary-water-470068.postman.co/workspace/My-Workspace~22d82c53-7c84-4f46-a24a-7a6d81ba212e/collection/21247146-4c706957-0601-4d51-bcb6-7b15217401d6?action=share&source=collection_link&creator=21247146"
+	},
+	"item": [
+		{
+			"name": "Fetch All Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Post by UserId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Number of posts made by userId 1\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var expectedCount = 10; // Replace with the expected number of posts\r",
+							"    pm.expect(jsonData.length).to.equal(expectedCount);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Assuming `users` is an array of user objects fetched from the API response\r",
+							"var users = [\r",
+							"    {\r",
+							"        \"id\": 1,\r",
+							"        \"name\": \"Leanne Graham\",\r",
+							"        \"email\": \"Sincere@april.biz\",\r",
+							"        \"address\": {\r",
+							"            \"street\": \"Kulas Light\",\r",
+							"            \"suite\": \"Apt. 556\",\r",
+							"            \"city\": \"Gwenborough\",\r",
+							"            \"zipcode\": \"92998-3874\",\r",
+							"        }\r",
+							"    },\r",
+							"    // Add more user objects as needed\r",
+							"];\r",
+							"\r",
+							"// Select a random user\r",
+							"var randomUser = users[Math.floor(Math.random() * users.length)];\r",
+							"\r",
+							"// Print user's name, email, and address to the console\r",
+							"console.log(\"Name: \" + randomUser.name);\r",
+							"console.log(\"Email: \" + randomUser.email);\r",
+							"console.log(\"Address: \" + randomUser.address.street + \", \" + randomUser.address.suite + \", \" + randomUser.address.city + \", \" + randomUser.address.zipcode);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Assuming `users` is an array of user objects fetched from the API response\r",
+							"var users = [\r",
+							"    {\r",
+							"        \"id\": 1,\r",
+							"        \"name\": \"Leanne Graham\",\r",
+							"        \"email\": \"Sincere@april.biz\",\r",
+							"        \"address\": {\r",
+							"            \"street\": \"Kulas Light\",\r",
+							"            \"suite\": \"Apt. 556\",\r",
+							"            \"city\": \"Gwenborough\",\r",
+							"            \"zipcode\": \"92998-3874\",\r",
+							"        }\r",
+							"    },\r",
+							"    // Add more user objects as needed\r",
+							"];\r",
+							"\r",
+							"// Select a random user\r",
+							"var randomUser = users[Math.floor(Math.random() * users.length)];\r",
+							"\r",
+							"// Print user's name, email, and address to the console\r",
+							"console.log(\"Name: \" + randomUser.name);\r",
+							"console.log(\"Email: \" + randomUser.email);\r",
+							"console.log(\"Address: \" + randomUser.address.street + \", \" + randomUser.address.suite + \", \" + randomUser.address.city + \", \" + randomUser.address.zipcode);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
